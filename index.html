@@ -1,9 +1,9 @@
 <!-- Project Description: This simple Hangman game will randomly select a word and allow the user
- to make guesses. Correct guesses will uncover letters on the hidden message, while incorrect
- guesses will add a body part to the hangman drawing. The player wins if the entire message is 
- uncovered. The player loses if the hangman gains all 6 body parts (head, body, left arm, right arm,
- left leg, right leg). There will be a message box that instructs the user and a list of already
- guessed letters. -->
+ to make guesses. The player wins if the entire message is uncovered. The player loses if the hangman
+ gains all 6 body parts (head, body, left arm, right arm, left leg, right leg). There will be a 
+ message box and a list of incorrectly guessed letters to aid the player. Some functions used will
+ include the submit button and resetting the round. A list will contain the incorrect guesses and a 
+ loop will be used to check each guess. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +18,9 @@
 
     <!--Instructions-->
     <p>How to play: Welcome to hangman! The goal of this game is to guess the word before the drawing is 
-    complete. The player guesses one letter at a time. Correct letters are written in the blanks; incorrect 
-    letters are listed, and a body part is added to the gallows drawing. If the whole word is uncovered, you
-    win! If the hangman gets all 6 body parts, you lose. Good luck!</p>
+    complete. Guess one letter at a time using the input box. Correct letters are written in the blanks;
+    incorrect letters are listed, and a body part is added to the gallows drawing. If the whole word is 
+    uncovered, you win! If the hangman gets all 6 body parts, you lose. Good luck!</p>
 
     <!--Hangman drawing-->
     <p class="drawing" id="head"> O </p>
