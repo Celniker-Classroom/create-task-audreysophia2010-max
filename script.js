@@ -31,18 +31,33 @@ document.getElementById("start").addEventListener("click", function() {
 
 document.getElementById("submit").addEventListener("click", function() {
     guess = document.getElementById("guess").value.toLowerCase();
-    let index;
+
+    if (guess.length != 1) {
+        document.getElementById("msg").textContent = "Please enter 1 letter.";
+    }
 
     if (answer.includes(guess)) {
-        // uncover letter that is correct, give positive encouragement in msg
-        document.getElementById("msg").textContent = "good"; // debugging purposes
+        // Correct guess
+        document.getElementById("msg").textContent = "Correct! The hidden word includes " + guess + "."; 
 
+        for (i = 0; i <= answer.length; i++) {
+            if (answer[i] === guess) {
+                message[i] = guess;
+            }
+        }
+
+        document.getElementById("word").textContent = message.join(" ");
     } else {
+        // Incorrect guess
         // add to hangman drawing, add to wrong guesses list, tell user to try again in msg
-        document.getElementById("msg").textContent = "bad"; // debugging purposes
+        document.getElementById("msg").textContent = "The hidden word does not include " + guess + "."; // debugging purposes
 
     }
 
 });
 
 // make an array for wrong guesses that prints in a list
+// check if a letter has already been guessed
+// add a winning state
+// add a losing state
+// add to the hangman drawing
