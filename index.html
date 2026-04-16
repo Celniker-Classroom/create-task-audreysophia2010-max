@@ -1,9 +1,8 @@
-<!-- Project Description: This simple Hangman game will randomly select a word and allow the user
- to make guesses. The player wins if the entire message is uncovered. The player loses if the hangman
- gains all 6 body parts (head, body, left arm, right arm, left leg, right leg). There will be a 
- message box and a list of incorrectly guessed letters to aid the player. Some functions used will
- include the submit button and resetting the round. A list will contain the incorrect guesses and a 
- loop will be used to check each guess. -->
+<!-- Project Description: This simple Hangman game randomly selects a word and allows the user
+ to make guesses. The player wins if the entire message is uncovered. The player loses if the 
+ hangman gains all 6 body parts (head, body, left arm, right arm, left leg, right leg). Functions 
+ used include the submit button, resetting the round, checking if two lists are equal, and updating 
+ the drawing. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,14 +34,5 @@
     <!--Input box-->
     <input type="text" id="guess">
     <button id="submit">Submit</button>
-
-    <!--Incorrect letters guessed-->
-    <p>Wrong guesses:</p>
-    <ul id="wrong">
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-    </ul>
-
 </body>
 </html>
