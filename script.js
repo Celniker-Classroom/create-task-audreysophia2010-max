@@ -32,6 +32,12 @@ document.getElementById("start").addEventListener("click", function() {
 document.getElementById("submit").addEventListener("click", function() {
     let guess = document.getElementById("guess").value.toLowerCase();
 
+    // Error handling
+    if (guess.length != 1 || guess === guess.toUpperCase()) {
+        msg.textContent = "Please enter 1 letter.";
+        return;
+    }
+
     if (answer.includes(guess)) {
         // Correct guess
         msg.textContent = "Correct! The hidden word includes " + guess + "."; 
@@ -82,27 +88,15 @@ function updateDrawing() {
         legs.textContent = "";
     } else if (drawCount === 1) {
         head.textContent = " O ";
-        body.textContent = "";
-        legs.textContent = "";
     } else if (drawCount === 2) {
-        head.textContent = " O ";
         body.textContent = "/";
-        legs.textContent = "";
     } else if (drawCount === 3) {
-        head.textContent = " O ";
         body.textContent = "/|";
-        legs.textContent = "";
     } else if (drawCount === 4) {
-        head.textContent = " O ";
         body.textContent = "/|\\";
-        legs.textContent = "";
     } else if (drawCount === 5) {
-        head.textContent = " O ";
-        body.textContent = "/|\\";
         legs.textContent = "/ ";
     } else if (drawCount === 6) {
-        head.textContent = " O ";
-        body.textContent = "/|\\";
         legs.textContent = "/ \\";
     }
 }
