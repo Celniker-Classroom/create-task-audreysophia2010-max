@@ -66,6 +66,7 @@ document.getElementById("submit").addEventListener("click", function() {
         } else {
             msg.textContent = "You won! You only made " + drawCount + " wrong guesses.";
         }
+        document.getElementById("word").textContent = message.join("");
         document.getElementById("submit").disabled = true;
     }
 
