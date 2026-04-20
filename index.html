@@ -13,26 +13,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hangman</h1>
-    <!--Instructions-->
-    <p>How to play: Welcome to hangman! The goal of this game is to guess the word before the drawing is complete. Guess one letter at a time using the input box. Correct letters are written in the blanks; incorrect letters add a body part to the gallows drawing. If the whole word is uncovered, you win! If the hangman gets all 6 body parts, you lose. Good luck!</p>
+    <div id="container">
+        <h1>Hangman</h1>
+        <!--Instructions-->
+        <p class="text">How to play: Welcome to hangman! The goal of this game is to guess the word before the drawing is complete. Guess one letter at a time using the input box. Correct letters are written in the blanks; incorrect letters add a body part to the gallows drawing. If the whole word is uncovered, you win! If the hangman gets all 6 body parts, you lose. Good luck!</p>
 
-    <!--Buttons-->
-    <button id="start">Start New Round</button>
+        <!--Buttons-->
+        <button id="start">Start New Round</button>
 
-    <!--Hangman drawing-->
-    <p class="drawing" id="head"></p>
-    <p class="drawing" id="body"></p>
-    <p class="drawing" id="legs"></p>
+        <!--Hangman drawing-->
+        <div id="drawing">
+            <p id="head"></p>
+            <p id="body"></p>
+            <p id="legs"></p>
+        </div>
 
-    <!--Hidden word-->
-    <p id="word"></p>
+        <!--Hidden word-->
+        <p id="word" class="text"></p>
 
-    <!--Message for user-->
-    <p id="msg"></p>
+        <!--Message for user-->
+        <p id="msg" class="text"></p>
 
-    <!--Input box-->
-    <input type="text" id="guess">
-    <button id="submit">Submit</button>
+        <!--Input box-->
+        <input type="text" id="guess">
+        <button id="submit">Submit</button>
+    </div>
 </body>
 </html>
