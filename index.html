@@ -16,16 +16,18 @@
     <div id="container">
         <h1>Hangman</h1>
         <!--Instructions-->
-        <p class="text">How to play: Welcome to hangman! The goal of this game is to guess the word before the drawing is complete. Guess one letter at a time using the input box. Correct letters are written in the blanks; incorrect letters add a body part to the gallows drawing. If the whole word is uncovered, you win! If the hangman gets all 6 body parts, you lose. Good luck!</p>
+        <p id="instruct" class="text">Welcome to hangman! The goal of this game is to guess the word before the drawing is complete. Guess one letter at a time using the input box. Correct letters are written in the blanks; incorrect letters add a body part to the gallows drawing. If the whole word is uncovered, you win! If the hangman gets all 6 body parts, you lose. Good luck!</p>
 
         <!--Buttons-->
-        <button id="start">Start New Round</button>
+        <button id="start">Start</button>
 
         <!--Hangman drawing-->
-        <div id="drawing">
-            <p id="head"></p>
-            <p id="body"></p>
-            <p id="legs"></p>
+        <div id="gallows">
+            <div id="drawing">
+                <p id="head"> O </p>
+                <p id="body">/|\</p>
+                <p id="legs">/ \</p>
+            </div>
         </div>
 
         <!--Hidden word-->

@@ -9,6 +9,9 @@ const msg = document.getElementById("msg");
 const head = document.getElementById("head");
 const body = document.getElementById("body");
 const legs = document.getElementById("legs");
+document.getElementById("submit").style.display = "none";
+document.getElementById("guess").style.display = "none";
+
 
 document.getElementById("start").addEventListener("click", function() {
     // Reset everything
@@ -16,7 +19,11 @@ document.getElementById("start").addEventListener("click", function() {
     drawCount = 0;
     updateDrawing();
     document.getElementById("guess").value = "";
+    document.getElementById("start").textContent = "New Round";
     msg.textContent = "Make your first guess!";
+    document.getElementById("submit").style.display = "inline-block";
+    document.getElementById("guess").style.display = "inline-block";
+    document.getElementById("instruct").style.display = "none";
     document.getElementById("submit").disabled = false;
 
     // Choose random word
@@ -31,6 +38,7 @@ document.getElementById("start").addEventListener("click", function() {
 // Guess button logic
 document.getElementById("submit").addEventListener("click", function() {
     let guess = document.getElementById("guess").value.toLowerCase();
+    document.getElementById("guess").value = "";
 
     // Error handling
     if (guess.length != 1 || guess === guess.toUpperCase()) {
@@ -58,6 +66,8 @@ document.getElementById("submit").addEventListener("click", function() {
     if (drawCount === 6) {
         msg.textContent = "You lost! The hidden word was " + answer.join("") + ".";
         document.getElementById("submit").disabled = true;
+        document.getElementById("submit").style.display = "none";
+        document.getElementById("guess").style.display = "none";
     } else if (areEqual(message, answer)) {
         if (drawCount === 0) {
             msg.textContent = "You won! You didn't make any wrong guesses.";
@@ -68,9 +78,9 @@ document.getElementById("submit").addEventListener("click", function() {
         }
         document.getElementById("word").textContent = message.join("");
         document.getElementById("submit").disabled = true;
+        document.getElementById("submit").style.display = "none";
+        document.getElementById("guess").style.display = "none";
     }
-
-    document.getElementById("guess").value = "";
 });
 
 // List with iteration, selection, and parameters
@@ -84,19 +94,19 @@ function areEqual(a, b) {
 // Draw function
 function updateDrawing() {
     if (drawCount === 0) {
-        head.textContent = "";
-        body.textContent = "";
-        legs.textContent = "";
+        head.textContent = "   ";
+        body.textContent = "   ";
+        legs.textContent = "   ";
     } else if (drawCount === 1) {
         head.textContent = " O ";
     } else if (drawCount === 2) {
-        body.textContent = "/";
+        body.textContent = "/  ";
     } else if (drawCount === 3) {
-        body.textContent = "/|";
+        body.textContent = "/| ";
     } else if (drawCount === 4) {
         body.textContent = "/|\\";
     } else if (drawCount === 5) {
-        legs.textContent = "/ ";
+        legs.textContent = "/  ";
     } else if (drawCount === 6) {
         legs.textContent = "/ \\";
     }
