@@ -5,6 +5,7 @@ words = ["electricity", "hardware", "amphibian", "circumference", "computer", "c
 let answer = [];
 let message = [];
 let drawCount = 0;
+let guessed = [];
 const msg = document.getElementById("msg");
 const head = document.getElementById("head");
 const body = document.getElementById("body");
@@ -16,6 +17,7 @@ document.getElementById("guess").style.display = "none";
 document.getElementById("start").addEventListener("click", function() {
     // Reset everything
     message = [];
+    guessed = [];
     drawCount = 0;
     updateDrawing();
     document.getElementById("guess").value = "";
@@ -29,7 +31,7 @@ document.getElementById("start").addEventListener("click", function() {
     // Choose random word
     let rand = Math.floor(Math.random() * 50);
     answer = words[rand].split("");
-    for (i = 0; i < answer.length; i++) {
+    for (let i = 0; i < answer.length; i++) {
         message.push("_");
     }
     document.getElementById("word").textContent = message.join(" ");
@@ -46,10 +48,17 @@ document.getElementById("submit").addEventListener("click", function() {
         return;
     }
 
+    // Check if already guessed
+    if (guessed.includes(guess)) {
+        msg.textContent = "You already guessed '" + guess + "'. Try again.";
+        return; // Stop the function here
+    }
+    guessed.push(guess);
+
     if (answer.includes(guess)) {
         // Correct guess
         msg.textContent = "Correct! The hidden word includes " + guess + "."; 
-        for (i = 0; i <= answer.length; i++) {
+        for (let i = 0; i < answer.length; i++) {
             if (answer[i] === guess) {
                 message[i] = guess;
             }
